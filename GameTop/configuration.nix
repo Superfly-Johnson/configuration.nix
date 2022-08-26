@@ -10,7 +10,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./Modules/nuphy-air75.nix
+      ../Modules/nuphy-air75.nix
     ];
 
   # Bootloader.
