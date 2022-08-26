@@ -1,0 +1,4 @@
+Superfly's NixOS's configuration. 
+
+# Usage
+Simply "ln -sf ./ComputerName/configuration.nix ./configuration.nix" from within /etc/nixos/
