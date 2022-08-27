@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../Modules/users.nix
       ../../Modules/programs.nix
+      ../../Modules/Services/flatpak.nix
     ];
 
   # Bootloader.
