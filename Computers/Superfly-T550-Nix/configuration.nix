@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../Modules/users.nix
     ];
 
   # Bootloader.
@@ -71,18 +72,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.superfly = {
-    isNormalUser = true;
-    description = "Superfly Johnson";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
-    ];
-  };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
