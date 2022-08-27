@@ -12,8 +12,7 @@
       ../../Modules/programs.nix
       ../../Modules/Services/flatpak.nix
     ];
-
-  # Bootloader.
+   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -22,6 +21,15 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
+    environment.etc."crypttab".text = ''
+    ssd476g9crypt /dev/disk/by-uuid/8983aee6-0cec-46b7-b5c6-5ffefa5a0e41 /crypto_keyfile.bin
+    '';
+    fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/4e4adce6-cf79-4f2c-bf74-7099d808c1ea";
+        fsType = "btrfs";
+        options = [ "subvol=@home" ];
+    };
+
 
   networking.hostName = "Superfly-T550-Nix";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

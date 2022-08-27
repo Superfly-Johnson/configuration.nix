@@ -16,7 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7240b007-303e-45d4-83e4-857efb7a9b15";
       fsType = "btrfs";
-      options = [ "subvol=@" ];
+      options = [ "subvol=@" "ssd" "nodatacow" ];
     };
 
   boot.initrd.luks.devices."luks-3c457025-8cdd-40de-81d9-61d3f83bbe18".device = "/dev/disk/by-uuid/3c457025-8cdd-40de-81d9-61d3f83bbe18";
