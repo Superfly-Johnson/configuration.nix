@@ -22,6 +22,23 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
+  environment.etc."crypttab".text = ''
+r3t6crypt   /dev/disk/by-uuid/2b0e58fe-c513-4766-9746-ef4e3d448897 /crypto_keyfile.bin
+r7t3crypt   /dev/disk/by-uuid/ae07c36b-b922-4ee4-8029-14993e185d45 /crypto_keyfile.bin
+r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfile.bin
+'';
+  fileSystems = {
+    "/home" = {
+      device = "/dev/disk/by-uuid/d5117fe0-6eab-4b59-acab-dd94c1aef104";
+      fsType = "btrfs";
+      options = [ "subvol=@home,nodatacow" ];
+    };
+    "/data" = {
+      device = "/dev/disk/by-uuid/4ddd8c97-ac57-486e-a628-066cb58f224d";
+      fsType = "btrfs";
+      options = [ "subvol=@data" ];
+    };
+  };
   networking.hostName = "GameTop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
