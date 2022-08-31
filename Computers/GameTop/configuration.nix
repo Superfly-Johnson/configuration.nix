@@ -41,7 +41,6 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
   };
   networking.hostName = "GameTop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -59,6 +58,11 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
+    services.xserver.screenSection = ''
+    Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+    Option         "AllowIndirectGLXProtocol" "off"
+    Option         "TripleBuffer" "on"
+    '';
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
