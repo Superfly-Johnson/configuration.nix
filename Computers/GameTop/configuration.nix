@@ -11,6 +11,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../Modules/nuphy-air75.nix
+      ../../Modules/Experimental-Features/nix-flakes.nix
     ];
 
   # Bootloader.
