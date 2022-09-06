@@ -10,7 +10,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../Modules/nuphy-air75.nix
+      ../../Modules/Hardware/nuphy-air75.nix
+      ../../Modules/Hardware/nvidia.nix
       ../../Modules/Experimental-Features/nix-flakes.nix
     ];
 
@@ -57,14 +58,6 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
-    services.xserver.screenSection = ''
-    Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
-    Option         "AllowIndirectGLXProtocol" "off"
-    Option         "TripleBuffer" "on"
-    '';
-
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
