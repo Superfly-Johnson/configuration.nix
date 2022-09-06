@@ -10,6 +10,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../Modules/users.nix
+      ../../Modules/programs.nix
       ../../Modules/Hardware/nuphy-air75.nix
       ../../Modules/Hardware/nvidia.nix
       ../../Modules/Experimental-Features/nix-flakes.nix
@@ -91,37 +93,17 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.superfly = {
-    isNormalUser = true;
-    description = "Superfly Johnson";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
-    ];
-  };
-
-  # Enable automatic login for the user.
+   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "superfly";
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    ark
-  ];
-  programs.steam = {
+ programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
-  programs.ssh = {
-    startAgent = true;
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
