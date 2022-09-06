@@ -10,10 +10,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../Modules/kde-plasma.nix
       ../../Modules/users.nix
       ../../Modules/programs.nix
       ../../Modules/Hardware/nuphy-air75.nix
       ../../Modules/Hardware/nvidia.nix
+      ../../Modules/Services/flatpak.nix
       ../../Modules/Experimental-Features/nix-flakes.nix
     ];
 
@@ -57,12 +59,6 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
 
   # Select internationalisation properties.
   i18n.defaultLocale = "fr_CA.utf8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -114,10 +110,6 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
 
   # List services that you want to enable:
 
-  # Flatpak
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -134,5 +126,4 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }
