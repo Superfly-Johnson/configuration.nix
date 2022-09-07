@@ -11,4 +11,7 @@
     environment.systemPackages = with pkgs; [
         ark
     ];
-} 
+
+    programs.kdeconnect.enable = true;
+}
+  
