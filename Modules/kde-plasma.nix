@@ -10,8 +10,8 @@
 
     environment.systemPackages = with pkgs; [
         ark
+        libsForQt5.kontact
     ];
-
     programs.kdeconnect.enable = true;
 }
   
