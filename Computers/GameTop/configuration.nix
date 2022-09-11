@@ -11,6 +11,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../Modules/kde-plasma.nix
+      ../../Modules/udev/steam-controller.nix
       ../../Modules/users.nix
       ../../Modules/programs.nix
       ../../Modules/Hardware/nuphy-air75.nix
