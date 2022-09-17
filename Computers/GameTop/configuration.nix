@@ -18,6 +18,7 @@
       ../../Modules/Hardware/nvidia.nix
       ../../Modules/Services/flatpak.nix
       ../../Modules/Experimental-Features/nix-flakes.nix
+      ../../Modules/audio-tools.nix
     ];
 
   # Bootloader.
