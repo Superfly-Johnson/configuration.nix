@@ -95,6 +95,8 @@ r298g1crypt /dev/disk/by-uuid/63366651-77e1-4438-91dd-093d5faa41e3 /crypto_keyfi
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "superfly";
 
+  time.hardwareClockInLocalTime = true;
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
  programs.steam = {
