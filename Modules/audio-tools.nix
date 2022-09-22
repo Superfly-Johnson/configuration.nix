@@ -5,6 +5,6 @@
     ardour
     carla
     musescore
+    sfizz
   ];
 }
-
