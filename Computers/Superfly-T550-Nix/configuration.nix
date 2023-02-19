@@ -12,6 +12,7 @@
       ../../Modules/kde-plasma.nix
       ../../Modules/programs.nix
       ../../Modules/Services/flatpak.nix
+      ../../Modules/Games/retroarch.nix
     ];
    # Bootloader.
   boot.loader.systemd-boot.enable = true;
